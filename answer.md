@@ -1,8 +1,6 @@
-Here are the answers to your questions based on the provided codebase:
-
 ### 1. What claims are in your JWT?
 
-Based on `src/utils/jwt.ts`, your JSON Web Tokens (JWTs) contain the following claims:
+Based on my JWT implementation in `src/utils/jwt.ts`, my JSON Web Tokens (JWTs) contain the following claims:
 
 *   **Access Token**:
     *   `sub` (Subject): The user's unique ID.
@@ -30,7 +28,7 @@ This strategy prevents a stolen refresh token from being used indefinitely. If a
 
 ### 3. How do you secure cookies?
 
-Your cookie security, as defined in `src/utils/cookies.ts`, is strong and addresses major threats:
+My cookie security, as defined in `src/utils/cookies.ts`, is strong and addresses major threats:
 
 *   **`httpOnly: true`**: This is the most critical flag for mitigating Cross-Site Scripting (XSS). It prevents client-side JavaScript from accessing the cookie, meaning an XSS payload cannot steal the tokens.
 *   **`secure: isProduction`**: This flag ensures that cookies are only sent over HTTPS in the production environment, protecting against man-in-the-middle attacks.
@@ -55,7 +53,7 @@ Here’s how it could be implemented:
 
 ### 5. Would you use DB or Redis for token storage and why?
 
-Currently, your application uses the **primary database (via Prisma)** to store the state of refresh tokens. This is a practical and common approach.
+Currently, my application uses the **primary database (via Prisma)** to store the state of refresh tokens. This is a practical and common approach.
 
 *   **Database (Current Approach)**:
     *   **Pros**: Simplicity (no extra infrastructure), data consistency, and transactional integrity with other user data.
