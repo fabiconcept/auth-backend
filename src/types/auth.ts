@@ -24,10 +24,29 @@ export interface RegisterRequest {
 }
 
 export interface AuthResponse {
-  user: {
-    id: string
-    email: string
-    name: string | null
+  success: boolean
+  data: {
+    user: {
+      id: string
+      email: string
+      name: string | null
+      createdAt?: Date
+      updatedAt?: Date
+    }
+    tokens: {
+      accessToken: string
+      refreshToken: string
+    }
   }
-  accessToken: string
+  error?: {
+    code: string
+    message: string
+    fields?: Record<string, string | undefined>
+    requirements?: {
+      minLength?: number
+      requireUppercase?: boolean
+      requireNumber?: boolean
+      requireSpecialChar?: boolean
+    }
+  }
 }
